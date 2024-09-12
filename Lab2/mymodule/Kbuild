@@ -1,0 +1,2 @@
+EXTRA_CFLAGS=-g
+obj-m = mymodule.o

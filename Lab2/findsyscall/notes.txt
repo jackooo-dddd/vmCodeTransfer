@@ -1,0 +1,7 @@
+#!/bin/bash
+# Go through the code with your TA
+make
+sudo insmod findsyscall.ko
+dmesg | tail
+sudo rmmod findsyscall.ko
+dmesg | tail

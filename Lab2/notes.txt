@@ -1,0 +1,12 @@
+0) Start your VM, including ./SetupKeys.sh and ./SetupNetwork.sh, find your IP
+1) Download the lab files to the lab machine
+2) scp -oHostKeyAlgorithms=+ssh-dss Lab2.zip student@IP:
+3) If you want to ssh into your VM you can do so via
+   ssh -oHostKeyAlgorithms=+ssh-dss student@192.168.122.126
+4) unzip Lab2.zip, if zip is not installed on your vm, you can
+   sudo apt-get install zip
+5) Load and unload the module mymodule (see notes.txt in mymodule). 
+   Make sure you understand what each command does.
+6) Complete findsyscall and show your TA the output.
+7) Complete functionPointers/sortThem.c and show your TA.
+
