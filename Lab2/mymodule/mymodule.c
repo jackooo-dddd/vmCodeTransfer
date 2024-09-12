@@ -11,5 +11,6 @@ static int mymodule_init(void) {
 static void mymodule_exit(void) {
 	printk( KERN_DEBUG "I'm outta here\n" );
 }
+//module_init: Specifies the function to be called when the module is loaded into the kernel
 module_init(mymodule_init);
 module_exit(mymodule_exit);

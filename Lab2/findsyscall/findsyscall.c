@@ -26,9 +26,9 @@ static int findsyscall_init(void) {
 	 */
 	
 	printk( KERN_DEBUG "Module findsyscall loaded\n" );
-	printk( KERN_DEBUG "exit lives at %p\n",1 ); // FIX THIS
-	printk( KERN_DEBUG "fork lives at %p\n",1 ); // FIX THIS
-	printk( KERN_DEBUG "read lives at %p\n",1 ); // FIX THIS
+	printk( KERN_DEBUG "exit lives at %p\n",sys_call_table[60] ); // FIX THIS
+	printk( KERN_DEBUG "fork lives at %p\n",sys_call_table[57] ); // FIX THIS
+	printk( KERN_DEBUG "read lives at %p\n",sys_call_table[0] ); // FIX THIS
 	return 0;
 }
 static void findsyscall_exit(void) {

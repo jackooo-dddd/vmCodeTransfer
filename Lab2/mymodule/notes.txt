@@ -1,7 +1,7 @@
 #!/bin/bash
 # Go through the code with your TA
 make
-sudo insmod mymodule.ko
-dmesg | tail
-sudo rmmod mymodule.ko
+sudo insmod mymodule.ko         // inserts the compiled kernel module into the Linux kernel 
+dmesg | tail                    // displays the last few lines of the kernel message buffer, which will include messages logged by your kernel module
+sudo rmmod mymodule.ko  
 dmesg | tail
