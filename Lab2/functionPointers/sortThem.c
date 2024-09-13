@@ -26,6 +26,7 @@ int isDecreasing(int a, int b){
 // FIX THIS FUNCTION TO MATCH THE ABOVE COMMENT
 void sort(int a[], int n){  
 	int i1,i2;
+	// After sorting is done, the list is in the increasing order
 	for(i1=0;i1<n-1;i1++){
 		for(i2=i1+1;i2<n;i2++){
 			// if a[i1] > a[i2], swap a[i1] to the right
@@ -39,6 +40,40 @@ void sort(int a[], int n){
 	}
 }
 
+void compareIncreasing(int a[], int n){  
+	int i1,i2;
+	// After sorting is done, the list is in the increasing order
+	for(i1=0;i1<n-1;i1++){
+		for(i2=i1+1;i2<n;i2++){
+			// if a[i1] > a[i2], swap a[i1] to the right
+			// after the inner loop terminates, the a[i1] is graunteed to be smallest among a[i1:]
+			if(isIncreasing(a[i1], a[i2])==0){	//isIncreasing is false: a[i1] >= a[i2]
+				int temp=a[i2];
+				a[i2]=a[i1];
+				a[i1]=temp;
+			}
+		}
+	}
+}
+
+void compareDecreasing(int a[], int n){  
+	int i1,i2;
+	// After sorting is done, the list is in the decreasubg order
+	for(i1=0;i1<n-1;i1++){
+		for(i2=i1+1;i2<n;i2++){
+			// if a[i1] < a[i2], swap a[i1] to the right, and a[i2] to the left
+			// after the inner loop terminates, the a[i1] is graunteed to be largest among a[i1:]
+			if(isDecreasing(a[i1], a[i2])==0){	//isDecreasing False: a[i1] <= a[i2]
+				int temp=a[i2];
+				a[i2]=a[i1];
+				a[i1]=temp;
+			}
+		}
+	}
+}
+
+
+
 int main(int argc, char ** argv){
 
 	// define a pointer to one of compareIncreasing or compareDecreasing
@@ -47,14 +82,17 @@ int main(int argc, char ** argv){
 	int a[n];
 	int i;
 
+	void (*sort)(int [], int);
 	if(argc<=1)usage();
 	if(argc>=2){
 		if(strcmp(argv[1], "increasing")==0){
 			// FIX THIS BY ASSIGNING TO THE FUNCTION POINTER
 			// Want sort point to a function sort increasingly
+			sort = compareIncreasing;
 		} else if(strcmp(argv[1], "decreasing")==0){
 			// FIX THIS BY ASSIGNING TO THE FUNCTION POINTER
 			// Want sort point to a function sort decreasingly
+			sort = compareDecreasing;
 		} else {
 			usage();
 		}
